@@ -1,5 +1,6 @@
 ## Installation
 
+### You can run this project with an IDE or run:
 ```bash
 $ npm install
 ```
