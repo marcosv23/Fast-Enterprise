@@ -14,7 +14,7 @@ $ java -jar target/FastEnterprise-0.0.1-SNAPSHOT.jar
 
 ### Access in your browser this link:
 
-[Click this to access Swagger]("http://localhost:8080/swagger-ui.html")
+[Click this to access Swagger link]("http://localhost:8080/swagger-ui.html")
 
 
 
