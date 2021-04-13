@@ -15,8 +15,7 @@ $ java -jar target/FastEnterprise-0.0.1-SNAPSHOT.jar
 ### Access in your browser this link:
 
 
-[Click this to access view endpoints into swagger](https://www.google.com "Swagger Documented API")
-
+[Check the endpoints with Swagger](localhost:8080/swagger-ui.html "Swagger Open API")
 
 
 
