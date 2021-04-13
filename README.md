@@ -10,7 +10,6 @@ $ mvn clean package spring-boot:repackage
 # development
 $ java -jar target/FastEnterprise-0.0.1-SNAPSHOT.jar
 
-
 <div align="right">
   
   [![English](https://www.countryflags.io/us/flat/32.png)](README.md)
@@ -42,13 +41,29 @@ $ java -jar target/FastEnterprise-0.0.1-SNAPSHOT.jar
  <a href="#balance_scale-license">License</a>
 </p>
 
+---
+## :eye_speech_bubble: **Preview**
 
+<div align="center">
+
+### :desktop_computer: Computer
+  
+|Desktop|Ultra Wide|
+|:---:|:---:|
+|<kbd><img src=".github/previews/desktop_preview.jpg" alt="Desktop"/></kbd>|<kbd><img src=".github/previews/ultraWide_preview.jpg" alt="Ultra Wide"/></kbd>|
+
+### :iphone: Responsive
+
+|Tablet|Mobile|
+|:---:|:---:|
+|<kbd><img src=".github/previews/tablet_preview.jpg" alt="Tablet"/></kbd>|<kbd><img src=".github/previews/mobile_preview.jpg" alt="Mobile"/></kbd>
+
+</div>
+  
 ---
 ## :information_source: About
 
-Fast Enterprise API an a project to handle
-enterprises needing, to ease  its data management,
-let''s check it up!
+Your description about this project.
 
 ---
 ## :memo: **Tasks**
@@ -59,12 +74,7 @@ let''s check it up!
 
 |State|Task|
 |:---:|:---|
-|:heavy_check_mark:|Allow API consuming from Receita Federal API|
-|:heavy_check_mark:|Allow a user managing its enterprise|
-|:heavy_check_mark:|Makes entirely updates (PUT)|
-|:heavy_check_mark:|Makes entirely updates (PATCH)|
-|:heavy_check_mark:|Makes soft deleting|
-|:heavy_check_mark:|Performs smart queries|
+|:heavy_check_mark:|Describe your task finished.|
 |:x:|Describe your task unfinished.|
 
 </details>
@@ -106,7 +116,7 @@ Open the command prompt in the project directory, open the [`exemple/`](exemple/
 
 </details>
 
-> ⚠️ The development server will start on port:8080 - Access <http://localhost:8080>
+> ⚠️ The development server will start on port:YOURPORT - Access <http://localhost:YOURPORT>
 
 ---
 ## :hammer_and_wrench: **Technologies**
@@ -122,7 +132,92 @@ The following tools is used to build this project:
 </div>
 
 ---
+## :muscle: **Contributors**
 
+Thanks to all these wonderful people:
+
+<div align="center">
+
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://PORTFOLIOURL.COM">
+        <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" width="100px;" alt="Image Profile NAME CONTRIBUTOR"/><br />
+        <sub><b>Contributor Name</b></sub>
+      </a>
+      <br/>
+      <a href="https://www.linkedin.com/in/CONTRIBUTORNAME" title="LinkedIn"><img src="https://simpleicons.org/icons/linkedin.svg" width="20px"/></a>
+      <a href="https://github.com/CONTRIBUTORNAME" title="GitHub"><img src="https://simpleicons.org/icons/github.svg" width="20px"/></a>
+      <a href="https://www.facebook.com/CONTRIBUTORNAME" title="Facebook"><img src="https://simpleicons.org/icons/facebook.svg" width="20px"/></a>
+      <a href="https://www.youtube.com/CANALNAME" title="YouTube"><img src="https://simpleicons.org/icons/youtube.svg" width="20px"/></a>
+    </td>
+    <td align="center">
+      <a href="https://PORTFOLIOURL.COM">
+        <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" width="100px;" alt="Image Profile NAME CONTRIBUTOR"/><br />
+        <sub><b>Contributor Name</b></sub>
+      </a>
+      <br/>
+      <a href="https://www.linkedin.com/in/CONTRIBUTORNAME" title="LinkedIn"><img src="https://simpleicons.org/icons/linkedin.svg" width="20px"/></a>
+      <a href="https://github.com/CONTRIBUTORNAME" title="GitHub"><img src="https://simpleicons.org/icons/github.svg" width="20px"/></a>
+      <a href="https://www.facebook.com/CONTRIBUTORNAME" title="Facebook"><img src="https://simpleicons.org/icons/facebook.svg" width="20px"/></a>
+      <a href="https://www.youtube.com/CANALNAME" title="YouTube"><img src="https://simpleicons.org/icons/youtube.svg" width="20px"/></a>
+    </td>
+    <td align="center">
+      <a href="https://PORTFOLIOURL.COM">
+        <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" width="100px;" alt="Image Profile NAME CONTRIBUTOR"/><br />
+        <sub><b>Contributor Name</b></sub>
+      </a>
+      <br/>
+      <a href="https://www.linkedin.com/in/CONTRIBUTORNAME" title="LinkedIn"><img src="https://simpleicons.org/icons/linkedin.svg" width="20px"/></a>
+      <a href="https://github.com/CONTRIBUTORNAME" title="GitHub"><img src="https://simpleicons.org/icons/github.svg" width="20px"/></a>
+      <a href="https://www.facebook.com/CONTRIBUTORNAME" title="Facebook"><img src="https://simpleicons.org/icons/facebook.svg" width="20px"/></a>
+      <a href="https://www.youtube.com/CANALNAME" title="YouTube"><img src="https://simpleicons.org/icons/youtube.svg" width="20px"/></a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://PORTFOLIOURL.COM">
+        <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" width="100px;" alt="Image Profile NAME CONTRIBUTOR"/><br />
+        <sub><b>Contributor Name</b></sub>
+      </a>
+      <br/>
+      <a href="https://www.linkedin.com/in/CONTRIBUTORNAME" title="LinkedIn"><img src="https://simpleicons.org/icons/linkedin.svg" width="20px"/></a>
+      <a href="https://github.com/CONTRIBUTORNAME" title="GitHub"><img src="https://simpleicons.org/icons/github.svg" width="20px"/></a>
+      <a href="https://www.facebook.com/CONTRIBUTORNAME" title="Facebook"><img src="https://simpleicons.org/icons/facebook.svg" width="20px"/></a>
+      <a href="https://www.youtube.com/CANALNAME" title="YouTube"><img src="https://simpleicons.org/icons/youtube.svg" width="20px"/></a>
+    </td>
+    <td align="center">
+      <a href="https://PORTFOLIOURL.COM">
+        <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" width="100px;" alt="Image Profile NAME CONTRIBUTOR"/><br />
+        <sub><b>Contributor Name</b></sub>
+      </a>
+      <br/>
+      <a href="https://www.linkedin.com/in/CONTRIBUTORNAME" title="LinkedIn"><img src="https://simpleicons.org/icons/linkedin.svg" width="20px"/></a>
+      <a href="https://github.com/CONTRIBUTORNAME" title="GitHub"><img src="https://simpleicons.org/icons/github.svg" width="20px"/></a>
+      <a href="https://www.facebook.com/CONTRIBUTORNAME" title="Facebook"><img src="https://simpleicons.org/icons/facebook.svg" width="20px"/></a>
+      <a href="https://www.youtube.com/CANALNAME" title="YouTube"><img src="https://simpleicons.org/icons/youtube.svg" width="20px"/></a>
+    </td>
+    <td align="center">
+      <a href="https://PORTFOLIOURL.COM">
+        <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" width="100px;" alt="Image Profile NAME CONTRIBUTOR"/><br />
+        <sub><b>Contributor Name</b></sub>
+      </a>
+      <br/>
+      <a href="https://www.linkedin.com/in/CONTRIBUTORNAME" title="LinkedIn"><img src="https://simpleicons.org/icons/linkedin.svg" width="20px"/></a>
+      <a href="https://github.com/CONTRIBUTORNAME" title="GitHub"><img src="https://simpleicons.org/icons/github.svg" width="20px"/></a>
+      <a href="https://www.facebook.com/CONTRIBUTORNAME" title="Facebook"><img src="https://simpleicons.org/icons/facebook.svg" width="20px"/></a>
+      <a href="https://www.youtube.com/CANALNAME" title="YouTube"><img src="https://simpleicons.org/icons/youtube.svg" width="20px"/></a>
+    </td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+</div>
 
 ---
 ## :boy: **Author**
@@ -130,20 +225,29 @@ The following tools is used to build this project:
 <div align="center">
 
 <a href="https://github.com/YOURUSERNAME">
- <img src="https://avatars.githubusercontent.com/u/63258483?s=400&u=06cd4bd3ec01938887ebdee1e80ac7300ddf5be0&v=4" width="100px;" alt="Profile Photo YOUR NAME"/>
+ <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" width="100px;" alt="Profile Photo YOUR NAME"/>
  <br/>
- <sub><b>Marcos Vinicius</b></sub>
+ <sub><b>YOUR NAME</b></sub>
 </a>
 
-Developed with ❤️ by marcosv23 👋🏽 Contact me!
+Developed with ❤️ by YOUR NAME 👋🏽 Contact me!
 
-[![Linkedin Badge](https://img.shields.io/badge/-YOUR_NAME-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/marcos-vinicius-da-silva-moraes-338595b4/)
-[![Github Badge](https://img.shields.io/badge/-YOURNAME-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/marcosv23)
+[![Linkedin Badge](https://img.shields.io/badge/-YOUR_NAME-blue?style=flat-square&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/YOURNAME)
+[![Github Badge](https://img.shields.io/badge/-YOURNAME-000?style=flat-square&logo=Github&logoColor=white)](https://github.com/YOURUSERNAME)
 [![Outlook Badge](https://img.shields.io/badge/-YOUREMAIL-0078d4?style=flat-square&logo=microsoft-outlook&logoColor=white)](mailto:YOUREMAIL)
 
 </div>
 
 ---
+## :balance_scale: **License**
+
+<div align="center">
+
+Copyright © 2021 [YOUR NAME](https://github.com/YOURUSERNAME).<br />
+This project is licensed by [MIT](./LICENSE).
+
+</div>
+
 
 
 
