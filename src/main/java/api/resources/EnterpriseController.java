@@ -35,199 +35,170 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping(value="api/enterprises")
-@Api(value="Fast Enterprise API")
+@RequestMapping(value = "api/enterprises")
+@Api(value = "Fast Enterprise API")
 //which domain can access the swagger API
-@CrossOrigin(origins="*")
+@CrossOrigin(origins = "*")
 
 public class EnterpriseController {
-	
 
 	@Autowired
 	EnterpriseService service;
-	
-	
+
 	@Autowired
 	UserService userService;
-	
+
 	@Autowired
 	ModelMapper modelMapper;
-	
-	
-	@GetMapping("/user/{id}")
-	@ApiOperation("Lista usuários por ID")
-	public ResponseEntity<List<EnterpriseModel>> findByUserId(
-			@PathVariable 
-			Long id){
-		var enterprisesEntity =service.findByUserId(id);
+
+	@GetMapping("/user/{userId}")
+	@ApiOperation("Lista todas as empresas que um usuário cadastrou")
+	public ResponseEntity<List<EnterpriseModel>> findByUserId(@PathVariable Long userId) {
+		var enterprisesEntity = service.findByUserId(userId);
+
 		var enterprisesModel = this.parseToCollectionModel(enterprisesEntity);
-		
-		if(enterprisesModel.isEmpty()) {
-			return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(null);	
+
+		if (enterprisesModel.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(null);
 		}
 		return ResponseEntity.ok().body(enterprisesModel);
-		
+
 	}
 
-	
-	@GetMapping("/{id}")
-	@ApiOperation("Retorna um usuário  por ID")
-	public ResponseEntity<?> findById(
-			@PathVariable 
-			Long id) {
-		var enterpriseEntity =  service.findById(id);
-	    
-		if(enterpriseEntity!=null) {
-			var enterpriseModel =this.parseToModel(enterpriseEntity);
+	@GetMapping("/{enterpriseId}")
+	@ApiOperation("Lista empresas por Id")
+	public ResponseEntity<?> findById(@PathVariable Long enterpriseId) {
+		var enterpriseEntity = service.findById(enterpriseId);
+
+		if (enterpriseEntity != null) {
+			var enterpriseModel = this.parseToModel(enterpriseEntity);
 			return ResponseEntity.ok().body(enterpriseModel);
 		}
-		
+
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
-		
+
 	}
-	
+
 	@GetMapping("/name/{name}")
-	@ApiOperation("Retorna  um ou mais usuários por nome")
-	public ResponseEntity<?> findByName(
-			@PathVariable 
-			String name){
-	   var enterprisesModel= this.parseToCollectionModel(service.findByEnterpriseNameContaining(name));
-	   
-	   if(enterprisesModel.isEmpty()) {
-		   return ResponseEntity.noContent().build();
-	   }
-	   return ResponseEntity.ok().body(enterprisesModel);
+	@ApiOperation("Busca uma empresa cadastrada por meio do nome")
+	public ResponseEntity<?> findByName(@PathVariable String name) {
+		var enterprisesModel = this.parseToCollectionModel(service.findByEnterpriseNameContaining(name));
+
+		if (enterprisesModel.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
+		return ResponseEntity.ok().body(enterprisesModel);
 	}
-	
-	
+
 	@GetMapping("/cnpj/{cnpj}")
-	@ApiOperation("Retorna uma empresa quando passado um CPF")
-	public ResponseEntity<?> findBycnpj(@PathVariable String cnpj){
-	    Enterprise enterpriseEntity= service.findBycnpj(cnpj);
-	 
-	   if(enterpriseEntity == null) {
-		   return ResponseEntity.noContent().build();
-	   }
-	   var enterpriseModel =this.parseToModel(enterpriseEntity);
-	   enterpriseModel.parseUserDataModel();
-	   
-	   return ResponseEntity.ok().body(enterpriseModel);
+	@ApiOperation("Busca uma empresa cadastrada por meio do cnpj")
+	public ResponseEntity<?> findBycnpj(@PathVariable String cnpj) {
+		Enterprise enterpriseEntity = service.findBycnpj(cnpj);
+
+		if (enterpriseEntity == null) {
+			return ResponseEntity.noContent().build();
+		}
+		var enterpriseModel = this.parseToModel(enterpriseEntity);
+		enterpriseModel.parseUserDataModel();
+
+		return ResponseEntity.ok().body(enterpriseModel);
 	}
-	
-	
+
 	// Using a sub resource '/user'
-	@PostMapping("/create/user/{id}")
-	@ApiOperation("Cria um novo usuário")
-    public ResponseEntity<?> create( 
-    		@PathVariable Long id,
-    		@Valid 
-    		@RequestBody 
-    		CreateEnterpriseDTO enterpriseDTO) throws ParseException{
-	
-		 
+	@PostMapping("/create/user/{userId}")
+	@ApiOperation("Cria uma nova empresa para o usuário passado via parâmetro")
+	public ResponseEntity<?> create(@PathVariable Long userId, @Valid @RequestBody CreateEnterpriseDTO enterpriseDTO)
+			throws ParseException {
+
 		var enterpriseByCNPJ = service.findBycnpj(enterpriseDTO.getCnpj());
 		var enterpriseEntity = new Enterprise();
-		var userExists = userService.findById(id);
-		enterpriseDTO.setUserId(id);
-		
-		
-		if(userExists ==null) {
-			throw new ApiException(
-					"O usuário solicitado para registro da empresa não existe!", 
-					HttpStatus.NOT_FOUND);
-		}
-		 
-		if(enterpriseByCNPJ==null) {
-		 enterpriseEntity =service.fillOutWithAPIData(enterpriseDTO);
-		}
-		else throw new ApiException("Esse CNPJ já existe", HttpStatus.FORBIDDEN);
-		
+		userService.userExists(userId);
+
+		enterpriseDTO.setUserId(userId);
+
+		if (enterpriseByCNPJ == null) {
+			enterpriseEntity = service.fillOutWithAPIData(enterpriseDTO);
+		} else
+			throw new ApiException("Esse CNPJ já existe", HttpStatus.FORBIDDEN);
+
 		service.create(enterpriseEntity);
 		EnterpriseModel enterpriseModel = this.parseToModel(enterpriseEntity);
 		enterpriseModel.parseUserDataModel();
-	    
+
 		return ResponseEntity.ok().body(enterpriseModel);
 	}
-	
-	@PatchMapping("/update/{id}")
-	@ApiOperation("Atualiza parcialmente um usuário, em um ou mais campos")
-	public ResponseEntity<?> update(
-			 @PathVariable
-			 Long id,
-			 
-			 @Valid  
-			 @RequestBody 
-			 Map<Object, Object> fields) {
-	
-	var enterprise=service.findById(id);
-	
-	if(enterprise==null) {
-		throw new ApiException("Empresa não está cadastrada", HttpStatus.NOT_FOUND);
-	}
-	
-	fields.forEach((k,v)->{
-		// k is key and v is value
-		Field field = ReflectionUtils.findRequiredField(Enterprise.class, (String)k);
-		field.setAccessible(true);
-		ReflectionUtils.setField(field,enterprise, v);
-	});
-	
-	var enterpriseUpdated = service.update(id,enterprise);
-	var enterpriseModel = this.parseToModel(enterpriseUpdated);
-	
-	return ResponseEntity.ok().body(enterpriseModel);	
-	}
-	
-	@PutMapping("/exchange/{id}")
-	@ApiOperation("Atualiza,obrigatoriamente, um usuário")
-	public ResponseEntity<?> exchange(
-			 @PathVariable
-			 Long id,
-			 
-			 @Valid  
-			 @RequestBody 
-			 ExchangeEnterpriseDTO enterpriseDTO) {
-	System.out.println("****");
-	System.out.println(enterpriseDTO);
-	var enterpriseExists =service.findById(id);
-	
-	if(enterpriseExists==null) {
-		throw new ApiException("Empresa não está cadastrada", HttpStatus.NOT_FOUND);
-	}
+
+	@PatchMapping("/update/{enterpriseId}")
+	@ApiOperation("Atualiza parcialmente uma empresa, em um ou mais campos")
+	public ResponseEntity<?> update(@PathVariable Long enterpriseId,
+
+			@Valid @RequestBody Map<Object, Object> fields) {
+
 		
-	var enterpriseEntity = this.parseToEntity(enterpriseDTO);
-	var enterprisesModel = this.parseToModel( service.update(id, enterpriseEntity));
-	
-	return ResponseEntity.ok().body(enterprisesModel);
-		
+		// check if exists
+		this.service.enterpriseExists(enterpriseId);
+
+		var enterprise = this.service.findById(enterpriseId);
+		var enterpriseModel = this.parseToModel(enterprise);
+
+		// check if is allowed to update
+		this.service.validatingUpdate(enterprise);
+
+		fields.forEach((k, v) -> {
+			Field field = ReflectionUtils.findRequiredField(EnterpriseModel.class, (String) k);
+			field.setAccessible(true);
+			ReflectionUtils.setField(field,enterpriseModel, v);
+		});
+
+		var enterpriseUpdated = service.update(enterpriseId, enterprise);
+
+
+		return ResponseEntity.ok().body(enterpriseModel);
 	}
-	
-	@DeleteMapping("/delete/{id}")
-	@ApiOperation("Faz soft delete, ou seja, não deleta, mas adiciona um timestamp no banco de dados")
-	public void delete(@PathVariable Long id) {
-		var enterprise =service.findById(id);
-		
-		if(enterprise==null) {
-			throw new ApiException("Essa empresa não existe!",HttpStatus.NOT_FOUND);
+
+	@PutMapping("/exchange/{enterpriseId}")
+	@ApiOperation("Atualiza,obrigatoriamente, todos os dados de uma empresa")
+	public ResponseEntity<?> exchange(@PathVariable Long enterpriseId,
+
+			@Valid @RequestBody ExchangeEnterpriseDTO enterpriseDTO) {
+
+		var enterpriseEntity = this.parseToEntity(enterpriseDTO);
+
+		// check if exists
+		this.service.enterpriseExists(enterpriseId);
+
+		// check if is allowed updated
+		this.service.validatingUpdate(enterpriseDTO);
+
+		var enterprisesModel = this.parseToModel(service.update(enterpriseId, enterpriseEntity));
+
+		return ResponseEntity.ok().body(enterprisesModel);
+
+	}
+
+	@DeleteMapping("/delete/{enterpriseId}")
+	@ApiOperation("Faz soft delete de uma empresa")
+	public void delete(@PathVariable Long enterpriseId) {
+		var enterprise = service.findById(enterpriseId);
+
+		if (enterprise == null) {
+			throw new ApiException("Essa empresa não existe!", HttpStatus.NOT_FOUND);
 		}
-		
-		service.delete(id, enterprise);
-		
+
+		service.delete(enterpriseId, enterprise);
+
 	}
-	
+
 	public EnterpriseModel parseToModel(Enterprise enterprise) {
-		return modelMapper.map( enterprise, EnterpriseModel.class);
+		return modelMapper.map(enterprise, EnterpriseModel.class);
 	}
-	
+
 	public Enterprise parseToEntity(Object enterprise) {
 		return modelMapper.map(enterprise, Enterprise.class);
 	}
-	
-	public List<EnterpriseModel> parseToCollectionModel(List<Enterprise> enterprises){
-		return enterprises.stream()
-			 .map(enterprise ->  parseToModel(enterprise))
-			 .collect(Collectors.toList());
+
+	public List<EnterpriseModel> parseToCollectionModel(List<Enterprise> enterprises) {
+		return enterprises.stream().map(enterprise -> parseToModel(enterprise)).collect(Collectors.toList());
 	}
-	
-	
+
 }

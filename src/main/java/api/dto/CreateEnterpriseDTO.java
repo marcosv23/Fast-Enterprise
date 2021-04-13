@@ -7,11 +7,11 @@ import javax.validation.constraints.Size;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class CreateEnterpriseDTO {
-	
+
 	public CreateEnterpriseDTO() {
 		super();
 	}
-	
+
 	public CreateEnterpriseDTO(@NotBlank @Size(max = 14) String cnpj, @NotNull Long userId) {
 		super();
 		this.cnpj = cnpj;
@@ -19,15 +19,13 @@ public class CreateEnterpriseDTO {
 	}
 
 	@NotBlank
-	@Size(max =14)
+	@Size(max = 14)
 	private String cnpj;
-	
+
 	/**
-	 *  userId 'll not be accepted into
-	 *  Request Body, but as a
-	 *  Route param!
+	 * userId 'll not be accepted into Request Body, but as a Route param!
 	 */
-	@JsonIgnore 
+	@JsonIgnore
 	private Long userId;
 
 	public String getCnpj() {
@@ -45,9 +43,5 @@ public class CreateEnterpriseDTO {
 	public void setUserId(Long userId) {
 		this.userId = userId;
 	}
-	
-	
-	
+
 }
-
-

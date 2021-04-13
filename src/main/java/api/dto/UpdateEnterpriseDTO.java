@@ -1,64 +1,41 @@
 package api.dto;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class ExchangeEnterpriseDTO {
+public class UpdateEnterpriseDTO {
 
-	public ExchangeEnterpriseDTO() {
-		super();
-	}
-
-	public ExchangeEnterpriseDTO(@NotBlank @Size(max = 14) String cnpj, Long userId) {
-		super();
-		this.cnpj = cnpj;
-		this.userId = userId;
-	}
-
-	@NotBlank
 	@Size(max = 14)
 	private String cnpj;
 
-	private Long userId;
-
-	@NotBlank
 	@Size(max = 50)
 	private String companyEmail;
 
-	@NotBlank
 	@Size(max = 80)
 	private String enterpriseName;
 
 	@JsonIgnore
 	private String owner;
 
-	@NotBlank
 	@Size(max = 20)
 	private String phone;
 
-	@NotBlank
 	@Size(max = 30)
 	private String situation;
 
-	@NotBlank
 	@Size(max = 150)
 	private String neighborhood;
 
-	@NotBlank
 	@Size(max = 100)
 	private String localNumber;
 
-	@NotBlank
 	@Size(max = 150)
 	private String city;
 
-	@NotBlank
 	@Size(max = 150)
 	private String street;
 
-	@NotBlank
 	@Size(max = 150)
 	private String sizeCompany;
 
@@ -68,14 +45,6 @@ public class ExchangeEnterpriseDTO {
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
-	}
-
-	public Long getUserId() {
-		return userId;
-	}
-
-	public void setUserId(Long userId) {
-		this.userId = userId;
 	}
 
 	public String getCompanyEmail() {

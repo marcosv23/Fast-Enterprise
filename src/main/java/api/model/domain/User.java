@@ -12,34 +12,32 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users")
-public class User implements Serializable{
+@Table(name = "users")
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String name;
-	
-	@OneToMany(mappedBy="user")
+
+	@OneToMany(mappedBy = "user")
 	private List<Enterprise> enterprises;
-	
-	private String email; 
-	
+
+	private String email;
+
 	private String login;
-	
+
 	private String cpf;
-	
+
 	private String phone;
-	
+
 	private OffsetDateTime createdAt;
-	
-	private OffsetDateTime  updatedAt;
-	
-	private OffsetDateTime  deletedAt;
-	
-	
+
+	private OffsetDateTime updatedAt;
+
+	private OffsetDateTime deletedAt;
 
 	public User() {
 		super();
@@ -52,7 +50,6 @@ public class User implements Serializable{
 		this.email = email;
 		this.login = login;
 	}
-
 
 	public String getCpf() {
 		return cpf;
@@ -73,9 +70,7 @@ public class User implements Serializable{
 	public Long getId() {
 		return id;
 	}
-	
-	
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -103,8 +98,6 @@ public class User implements Serializable{
 	public void setLogin(String login) {
 		this.login = login;
 	}
-	
-	
 
 	public List<Enterprise> getEnterprises() {
 		return enterprises;
@@ -114,9 +107,6 @@ public class User implements Serializable{
 		this.enterprises = enterprises;
 	}
 
-	
-	
-	
 	public OffsetDateTime getCreatedAt() {
 		return createdAt;
 	}
@@ -165,10 +155,5 @@ public class User implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
+
 }

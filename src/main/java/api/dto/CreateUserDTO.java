@@ -6,24 +6,24 @@ import javax.validation.constraints.Size;
 
 public class CreateUserDTO {
 
-	   @NotBlank
-	   @Size(max=60)
-	   private String name; 
-	
-	   @NotBlank
-	   @Email
-	   @Size(max=255)
-	   private String email; 
-	   
-	   @Size(max=255)
-       private String login;
-	  
-       @NotBlank
-       @Size(min=11,max = 11)
-	   private String cpf;
-	   
-       @Size(min=8, max=20)
-	   private String phone;
+	@NotBlank
+	@Size(max = 60)
+	private String name;
+
+	@NotBlank
+	@Email
+	@Size(max = 255)
+	private String email;
+
+	@Size(max = 255)
+	private String login;
+
+	@NotBlank
+	@Size(min = 11, max = 11)
+	private String cpf;
+
+	@Size(min = 8, max = 20)
+	private String phone;
 
 	public CreateUserDTO() {
 		super();
@@ -76,7 +76,5 @@ public class CreateUserDTO {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	   
-	   
-	
+
 }

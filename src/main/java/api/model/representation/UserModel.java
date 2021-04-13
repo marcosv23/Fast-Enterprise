@@ -1,19 +1,24 @@
 package api.model.representation;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 public class UserModel {
-	
+
 	private Long id;
-	
+
 	private String name;
 
-    private String email; 
-	
+	private String email;
+
+	@JsonInclude(value = Include.NON_NULL)
 	private String login;
-	
+
 	private String cpf;
-	
+
+	@JsonInclude(value = Include.NON_NULL)
 	private String phone;
-	
+
 	public UserModel() {
 		super();
 	}
@@ -25,7 +30,6 @@ public class UserModel {
 		this.cpf = cpf;
 		this.phone = phone;
 	}
-	
 
 	public Long getId() {
 		return id;
@@ -38,8 +42,6 @@ public class UserModel {
 	public String getEmail() {
 		return email;
 	}
-	
-	
 
 	public String getName() {
 		return name;
@@ -76,6 +78,5 @@ public class UserModel {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	
-	
+
 }

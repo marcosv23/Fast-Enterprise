@@ -7,75 +7,74 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 public class EnterpriseModel {
-	
+
 	@JsonIgnore()
 	private UserModel user;
-	
-	private String  enterpriseName;
-	
+
+	private Long id;
+
+	private String enterpriseName;
+
 	private String cnpj;
-	
+
 	private String enterpriseEmail;
-	
+
 	private Date foundation;
-	
+
 	@JsonInclude(Include.NON_NULL)
 	private String owner;
-	
+
 	@JsonInclude(Include.NON_NULL)
 	private String phone;
-	
-	private String  situation;
-	
+
+	private String situation;
+
 	private String neighborhood;
-	
+
 	private String localNumber;
-	
+
 	private String city;
-	
+
 	private String street;
-	
+
 	private String sizeCompany;
-	
-    private Long userId;
-	
-	private String userCPF;
-	
-	private String userLogin;
-	
-	private String userEmail;
-	
+
 	@JsonInclude(Include.NON_NULL)
-	private Long createdById; 
-	
+	private Long userId;
+
+	@JsonInclude(Include.NON_NULL)
+	private String userCPF;
+
+	@JsonInclude(Include.NON_NULL)
+	private String userLogin;
+
+	@JsonInclude(Include.NON_NULL)
+	private String userEmail;
+
+	@JsonInclude(Include.NON_NULL)
+	private Long createdById;
+
 	@JsonInclude(Include.NON_NULL)
 	private ActivityInput activity;
 
-	
-	
 	public void parseUserDataModel() {
-		
+
 		this.setUserLogin(this.user.getLogin());
 		this.setUserId(this.user.getId());
 		this.setUserEmail(this.user.getEmail());
 		this.setUserCPF(this.user.getCpf());
 		this.setCreatedById(user);
-		
+
 		this.setUser(null);
 	}
-	
 
 	public String getEnterpriseEmail() {
 		return enterpriseEmail;
 	}
 
-
-
 	public void setEnterpriseEmail(String enterpriseEmail) {
 		this.enterpriseEmail = enterpriseEmail;
 	}
-
-
 
 	public String getEnterpriseName() {
 		return enterpriseName;
@@ -197,7 +196,6 @@ public class EnterpriseModel {
 		this.user = user;
 	}
 
-
 	public String getUserLogin() {
 		return userLogin;
 	}
@@ -214,11 +212,13 @@ public class EnterpriseModel {
 		this.userEmail = userEmail;
 	}
 
-	
+	public Long getId() {
+		return id;
+	}
 
-	
-
-
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getUserCPF() {
 		return userCPF;
@@ -228,16 +228,10 @@ public class EnterpriseModel {
 		this.userCPF = userCPF;
 	}
 
-
-
-
-
-
-
 	public class ActivityInput {
 
 		String text;
-		
+
 		String code;
 
 		public String getText() {
@@ -255,12 +249,7 @@ public class EnterpriseModel {
 		public void setCode(String code) {
 			this.code = code;
 		}
-		
-		
-		
-		
+
 	}
 
-	
-	
 }

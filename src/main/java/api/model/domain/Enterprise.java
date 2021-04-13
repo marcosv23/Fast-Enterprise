@@ -13,52 +13,50 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="enterprises")
+@Table(name = "enterprises")
 public class Enterprise {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@ManyToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name = "user_id")
 	private User user;
-	
+
 	private String companyEmail;
-	
-	@Column(name="fullname")
-	private String  enterpriseName;
-	
+
+	@Column(name = "fullname")
+	private String enterpriseName;
+
 	private String cnpj;
-	
+
 	private Date foundation;
-	
+
 	private String owner;
-	
+
 	private String phone;
-	
-	private String  situation;
-	
+
+	private String situation;
+
 	private String neighborhood;
-	
+
 	private String localNumber;
-	
+
 	private String city;
-	
+
 	private String street;
-	
+
 	@Column(name = "registered_by")
 	private String createdBy;
 
 	private String sizeCompany;
 
 	private OffsetDateTime createdAt;
-	
-	private OffsetDateTime  updatedAt;
-	
-	private OffsetDateTime  deletedAt;
-	
-	
+
+	private OffsetDateTime updatedAt;
+
+	private OffsetDateTime deletedAt;
 
 	public Enterprise() {
 		super();
@@ -89,10 +87,6 @@ public class Enterprise {
 		this.deletedAt = deletedAt;
 	}
 
-
-
-
-
 	public Long getId() {
 		return id;
 	}
@@ -100,7 +94,7 @@ public class Enterprise {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public User getUser() {
 		return user;
 	}
@@ -129,11 +123,9 @@ public class Enterprise {
 		return enterpriseName;
 	}
 
-
 	public void setEnterpriseName(String enterpriseName) {
 		this.enterpriseName = enterpriseName;
 	}
-
 
 	public String getOwner() {
 		return owner;
@@ -206,7 +198,6 @@ public class Enterprise {
 	public void setSizeCompany(String sizeCompany) {
 		this.sizeCompany = sizeCompany;
 	}
-	
 
 	public String getCreatedBy() {
 		return createdBy;
@@ -239,7 +230,6 @@ public class Enterprise {
 	public void setDeletedAt(OffsetDateTime offsetDateTime) {
 		this.deletedAt = offsetDateTime;
 	}
-	
 
 	@Override
 	public int hashCode() {
@@ -265,10 +255,5 @@ public class Enterprise {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
-	
+
 }

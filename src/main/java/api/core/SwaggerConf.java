@@ -19,29 +19,19 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class SwaggerConf {
 
 	@Bean
-    public Docket productApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("api"))
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(metaInfo());
-    }
+	public Docket productApi() {
+		return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage("api"))
+				.paths(PathSelectors.any()).build().apiInfo(metaInfo());
+	}
 
-    private ApiInfo metaInfo() {
+	private ApiInfo metaInfo() {
 
-        ApiInfo apiInfo = new ApiInfo(
-                "Produtos API REST",
-                "API REST de cadastro de produtos.",
-                "1.0",
-                "Terms of Service",
-                new Contact("Michelli Brito", "https://www.youtube.com/michellibrito",
-                        "michellidibrito@gmail.com"),
-                "Apache License Version 2.0",
-                "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>()
-        );
+		ApiInfo apiInfo = new ApiInfo("Fast enterprise API", "API REST para uso empresarial", "1.0", "Terms of Service",
+				new Contact("Marcos Vinicius da Silva Moraes", "https://www.github.com/marcosv23",
+						"marcos_v.23@hotmail.com"),
+				"Apache License Version 2.0", "https://www.apache.org/licesen.html", new ArrayList<VendorExtension>());
 
-        return apiInfo;
-    }
-	
+		return apiInfo;
+	}
+
 }

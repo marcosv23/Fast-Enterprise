@@ -1,16 +1,13 @@
 package api.dto;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public class ExchangeUserDTO {
+public class UpdateUserDTO {
 
-	@NotBlank
 	@Size(max = 60)
 	private String name;
 
-	@NotBlank
 	@Email
 	@Size(max = 255)
 	private String email;
@@ -18,11 +15,9 @@ public class ExchangeUserDTO {
 	@Size(max = 255)
 	private String login;
 
-	@NotBlank
 	@Size(min = 11, max = 11)
 	private String cpf;
 
-	@NotBlank
 	@Size(min = 8, max = 20)
 	private String phone;
 
