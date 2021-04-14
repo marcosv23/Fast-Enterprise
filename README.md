@@ -32,7 +32,7 @@ $ mvn clean package spring-boot:repackage
 $ java -jar target/FastEnterprise-0.0.1-SNAPSHOT.jar
 ```
 
-##4) Since project is running, you can see the endpoints and test this:
+## 4) Since project is running, you can see the endpoints and test this:
 
 ### Access in your browser this link:
 
