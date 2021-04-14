@@ -1,6 +1,6 @@
-# FastEnterprise :earth_americas: running:
+# FastEnterprise :earth_americas: :running:
 
- ####  Fast Enterprise API  :earth_americas: running: &nbsp;   uses  [Receita Federal API](https://receitaws.com.br/api) to get some official informations
+ ####  Fast Enterprise API  :earth_americas: :running: &nbsp;   uses  [Receita Federal API](https://receitaws.com.br/api) to get some official informations
  
  [Try this: ](https://receitaws.com.br/v1/cnpj/45242914000105)
  
@@ -13,7 +13,7 @@
   
 
 
-### 2) Fast Enterprise :  &nbsp; earth_americas: running::
+### 2) Fast Enterprise :  &nbsp; :earth_americas: :running:
    *  Allow each user manage their registered enterprises
    *  Several verifications to assure app integrity
    *  Has many  API input and output validations
@@ -21,7 +21,7 @@
    * Allow a client side consume this API
    * All endpoints mapped with swagger
 
-## 3)Installation
+## 3)Installation :heavy_check_mark:
 
 ### 3.1) You can run this project with an IDE or run:
 ```bash
@@ -42,7 +42,7 @@ $ java -jar target/FastEnterprise-0.0.1-SNAPSHOT.jar
 ```text
 localhost:8080/swagger-ui.html 
 ```
-### 5) Further information
+### 5) Further information  :books:
 
 You can test Fast Enterprise with &nbsp; [Postman](https://www.postman.com/ "Swagger Open API") &nbsp; or &nbsp;[Insomnia](https://insomnia.rest/download "Swagger Open API")&nbsp;, for instance.
 
