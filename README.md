@@ -1,4 +1,4 @@
-# FastEnterprise :earth_americas: :running:
+# Fast Enterprise :earth_americas: :running:
 
  ####  Fast Enterprise API  :earth_americas: :running: &nbsp;   uses  [Receita Federal API](https://receitaws.com.br/api) to get some official informations
  
