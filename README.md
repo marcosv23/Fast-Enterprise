@@ -48,7 +48,7 @@ localhost:8080/swagger-ui.html
 You can test Fast Enterprise with &nbsp; [Postman](https://www.postman.com/ "Swagger Open API") &nbsp; or &nbsp;[Insomnia](https://insomnia.rest/download "Swagger Open API")&nbsp;, for instance.
 
 So, for seeing the API contracts you can check Swagger documentation 
-or as workaround using through the code seek for the DTOs and see teh API contracts;
+or ,as workaround checking, through the code, seeking for the DTOs to handle with the API contracts;
 
 [Check the endpoints with Swagger just after the project is running](localhost:8080/swagger-ui.html "Swagger Open API")
 
