@@ -23,9 +23,9 @@
 
 ## 3)Installation :heavy_check_mark:
 
-### 3.1) You can run this project with an IDE or run:
+### 3.1) You can run this project with an IDE or run on project directory:
 ```bash
-$ mvn clean package spring-boot:repackage
+$ mvn clean package 
 ```
 
 ```bash
@@ -46,7 +46,8 @@ localhost:8080/swagger-ui.html
 
 You can test Fast Enterprise with &nbsp; [Postman](https://www.postman.com/ "Swagger Open API") &nbsp; or &nbsp;[Insomnia](https://insomnia.rest/download "Swagger Open API")&nbsp;, for instance.
 
-So, for seeing the API contracts you 'll need to see  it with Swagger or through the code ;
+So, for seeing the API contracts you can check Swagger documentation 
+or as workaround using through the code seek for the DTOs and see teh API contracts;
 
 [Check the endpoints with Swagger just after the project is running](localhost:8080/swagger-ui.html "Swagger Open API")
 
