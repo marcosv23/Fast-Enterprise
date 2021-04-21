@@ -8,18 +8,18 @@
 ### 1) Benefits
   * Properly registering enterprises with official information
   * Users can manage many enterprises;
-  * Each user 'll only seeing only its associated enterprises
+  * Each user 'll see only its associated enterprises
   * Easy API to use and consume
   
 
 
 ### 2) Fast Enterprise :  &nbsp; :earth_americas: :running:
    *  Allow each user manage their registered enterprises
-   *  Several verifications to assure app integrity
+   *  Several verifications to assure server integrity
    *  Has many  API input and output validations
-   *  ALL HTTP verbs implemented and is preventing undesirable operations
-   * Allow a client side consume this API
-   * All endpoints mapped with swagger
+   *  ALL HTTP verbs implemented  is prevention from undesirable operations
+   *  Allow a client side consume this API
+   *  All endpoints mapped with swagger
 
 ## 3)Installation :heavy_check_mark:
 
